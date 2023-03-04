@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hm-ra
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: hm-ra
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: hm-ra
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.phpImageVersionName }}:{{ .Values.phpImageVersionTag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /haelth.php
+              port: 80
+            periodSeconds: {{ .Values.containers.livenessProbe.periodSeconds }}
+          readinessProbe:
+            httpGet:
+              path: /haelth.php
+              port: 80
+            periodSeconds: {{ .Values.containers.readinessProbe.periodSeconds }}

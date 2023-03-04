@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hm-ra
+spec:
+  selector:
+    app.kubernetes.io/name: hm-ra
+  ports:
+    - protocol: TCP
+      port:  80
+      targetPort: http

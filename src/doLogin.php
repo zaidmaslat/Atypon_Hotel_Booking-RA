@@ -20,11 +20,11 @@
             die();
         }
         elseif($role == "manager"){
-            header("Location: /Managers/managersLoginPage.php?managerID=$userID");
+            header("Location:  http://mgr.hotel-booking-378919.com/Managers/managersLoginPage.php?managerID=$userID");
             die();
         }
         elseif($role == "user"){
-            header("Location: /Users/usersLoginPage.php?userID=$userID");
+            header("Location:  http://user.hotel-booking-378919.com/Users/usersLoginPage.php?userID=$userID");
             die();
         }
 ?>

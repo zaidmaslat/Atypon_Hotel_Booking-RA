@@ -30,3 +30,10 @@ spec:
               path: /health.php
               port: 80
             periodSeconds: {{ .Values.containers.readinessProbe.periodSeconds }}
+            resources:
+              limits:
+                memory: 100Mi
+                cpu: 300m
+              requests:
+                memory: 60Mi
+                cpu: 100m

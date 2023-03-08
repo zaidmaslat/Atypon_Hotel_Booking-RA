@@ -3,7 +3,7 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: hm-ra
 spec:
-  maxReplicas: 5
+  maxReplicas: 10
   minReplicas: 1
   metrics:
   - type: Resource
